@@ -1,0 +1,20 @@
+<Project Sdk="Godot.NET.Sdk/4.3.0">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework Condition=" '$(GodotTargetPlatform)' == 'android' ">net7.0</TargetFramework>
+    <TargetFramework Condition=" '$(GodotTargetPlatform)' == 'ios' ">net8.0</TargetFramework>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+    <LangVersion>default</LangVersion>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- Production dependencies go here! -->
+    <PackageReference Include="Chickensoft.AutoInject" Version="2.3.0" />
+    <PackageReference Include="Chickensoft.GodotNodeInterfaces" Version="2.2.22" />
+    <PackageReference Include="Chickensoft.Introspection" Version="1.4.0" />
+    <PackageReference Include="Chickensoft.Introspection.Generator" Version="1.4.0" />
+    <PackageReference Include="Chickensoft.LogicBlocks" Version="5.3.0" />
+    <PackageReference Include="Chickensoft.LogicBlocks.DiagramGenerator" Version="5.3.0" />
+    <PackageReference Include="GodotSharp.SourceGenerators" Version="2.4.0" />
+  </ItemGroup>
+</Project>

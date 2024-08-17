@@ -1,0 +1,11 @@
+@startuml PieceLogic
+state "PieceLogic State" as GMTKJam_PieceLogic_State {
+  state "Released" as GMTKJam_PieceLogic_State_Released
+  state "Grabbed" as GMTKJam_PieceLogic_State_Grabbed
+}
+
+GMTKJam_PieceLogic_State_Grabbed --> GMTKJam_PieceLogic_State_Grabbed : PhysicsTick
+GMTKJam_PieceLogic_State_Grabbed --> GMTKJam_PieceLogic_State_Released : Release
+GMTKJam_PieceLogic_State_Released --> GMTKJam_PieceLogic_State_Grabbed : Grab
+[*] --> GMTKJam_PieceLogic_State_Released
+@enduml

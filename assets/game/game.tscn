@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://6g6jiwdmjmm2"]
+
+[ext_resource type="Script" path="res://src/game/Game.cs" id="1_n6agt"]
+[ext_resource type="Texture2D" uid="uid://ch2rfmxqmuiyf" path="res://assets/piece/textures/foot_base.png" id="2_0c83o"]
+[ext_resource type="PackedScene" uid="uid://ch6ch8mh5bcoi" path="res://assets/piece/piece.tscn" id="2_e1yjd"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_p1e8c"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_nilmj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7m6ae"]
+size = Vector2(64, 16)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_n6agt")
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(0, 656)
+collision_mask = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="Floor"]
+texture = SubResource("CanvasTexture_p1e8c")
+polygon = PackedVector2Array(0, 0, 1152, 0, 1152, 64, 0, 64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(576, 0)
+shape = SubResource("WorldBoundaryShape2D_nilmj")
+
+[node name="FootBase" parent="." instance=ExtResource("2_e1yjd")]
+position = Vector2(152, 40)
+freeze_mode = 0
+
+[node name="CollisionShape2D" parent="FootBase" index="0"]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_7m6ae")
+
+[node name="Sprite2D" parent="FootBase" index="1"]
+texture = ExtResource("2_0c83o")
+
+[editable path="FootBase"]

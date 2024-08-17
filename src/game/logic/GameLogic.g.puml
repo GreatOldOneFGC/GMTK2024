@@ -1,0 +1,10 @@
+@startuml GameLogic
+state "GameLogic State" as GMTKJam_GameLogic_State {
+  state "Disabled" as GMTKJam_GameLogic_State_Disabled
+  state "Enabled" as GMTKJam_GameLogic_State_Enabled
+}
+
+GMTKJam_GameLogic_State_Disabled --> GMTKJam_GameLogic_State_Enabled : Enable
+GMTKJam_GameLogic_State_Enabled --> GMTKJam_GameLogic_State_Disabled : Disable
+[*] --> GMTKJam_GameLogic_State_Disabled
+@enduml
